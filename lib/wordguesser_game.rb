@@ -1,4 +1,5 @@
 class WordGuesserGame
+  attr_accessor :word, :guesses, :wrong_guesses, :curr
   # add the necessary class methods, attributes, etc. here
   # to make the tests in spec/wordguesser_game_spec.rb pass.
 
@@ -6,6 +7,30 @@ class WordGuesserGame
 
   def initialize(word)
     @word = word
+    @guesses = ''
+    @wrong_guesses = ''
+  end
+
+  def guess(letter)
+    if @word.include?(letter) == false
+      if @wrong_guesses == nil
+        @wrong_guessesguesses += letter
+      elsif @wrong_guesses.include?(letter) == false
+        @wrong_guesses += letter
+      else
+        return false
+      end
+      
+    elsif @word.include?(letter) == true 
+      if @guesses == nil
+        @guesses += letter
+      elsif @guesses.include?(letter) == false
+        @guesses += letter
+      else
+        return false
+      end
+    end
+    true
   end
 
   # You can test it by installing irb via $ gem install irb
