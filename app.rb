@@ -51,12 +51,9 @@ class WordGuesserApp < Sinatra::Base
     rescue ArgumentError
       flash[:message] = "Invalid guess."
     
-    else
-      if result == false
-        flash[:message] = "You have already used that letter."
-      end
-    redirect '/show'
     end
+    redirect '/show'
+
   end
 
   # Everytime a guess is made, we should eventually end up at this route.
